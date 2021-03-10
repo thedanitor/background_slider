@@ -20,7 +20,7 @@ body {
   /* no margins  */
   margin: 0;
   /* hard code image for now  */
-  background-image: url("./reef.jpg");
+  /* background-image: url("./reef.jpg"); */
   /* horizontal center | vertical center */
   background-position: center center;
   /* cover entire container */

@@ -17,7 +17,7 @@ Photo by <a href="https://unsplash.com/@grin?utm_source=unsplash&utm_medium=refe
 
 ### Overall Impression
 
-
+Great example of a photo gallery or carousel-type page! Looks very cool with background image changing and being the same size. I'm sure I would have made it much more complicated than it needed to be if I tried it myself. I will be looking for opportunities to implement something similar.
 
 ### Things Learned
 
