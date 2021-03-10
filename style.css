@@ -1,22 +1,123 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 * {
-    /* width not affected by padding or border */
-    box-sizing: border-box;
+  /* width not affected by padding or border */
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    display: flex;
-    flex-direction: column;
-    /* Centered horizontally */
-    align-items: center; 
-    /* Centered vertically on 100% viewport */
-    justify-content: center;
-    /* 100% viewport height  */
-    height: 100vh;
-    /* don't want scrollbars  */
-    overflow: hidden;
-    /* no margins  */
-    margin: 0;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* Centered horizontally */
+  align-items: center;
+  /* Centered vertically on 100% viewport */
+  justify-content: center;
+  /* 100% viewport height  */
+  height: 100vh;
+  /* don't want scrollbars  */
+  overflow: hidden;
+  /* no margins  */
+  margin: 0;
+  /* hard code image for now  */
+  background-image: url("./reef.jpg");
+  /* horizontal center | vertical center */
+  background-position: center center;
+  /* cover entire container */
+  background-size: cover;
+  /* all transitionable props (background-image)  */
+  transition: 0.4s ease;
+}
+
+/* create overlay on body */
+body::before {
+  /* need to include content with ::before or ::after */
+  content: "";
+  position: absolute;
+  /* starts at top left corner */
+  top: 0;
+  left: 0;
+  /* full width of parent */
+  width: 100%;
+  /* height of viewport  */
+  height: 100vh;
+  /* black w/ 0.7 opacity */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* puts it behind other elements */
+  z-index: -1;
+}
+
+.slider-container {
+  /* horizontal offset | vertical offset | blur-radius | color  x 2 */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  /* 70% viewport height */
+  height: 70vh;
+  /* 70% viewport width  */
+  width: 70vw;
+  /* so can make children absolute  */
+  position: relative;
+  /* everything inside container  */
+  overflow: hidden;
+}
+
+/* just slide class  */
+.slide {
+  /* transparent */
+  opacity: 0;
+  /* full height of viewport  */
+  height: 100vh;
+  /* full width of viewport */
+  width: 100vw;
+  /* horizontal center | vertical center */
+  background-position: center center;
+  /* cover entire container (container size in this case is viewport, but is hidden outside of .slider-container)*/
+  background-size: cover;
+  position: absolute;
+  /* 15% down from top  */
+  top: -15vh;
+  /* 15% to the right  */
+  left: -15vh;
+/* all transitionable props (background-image)  */
+  transition: 0.4s ease;
+  /* make sure is above other elements on page  */
+  z-index: 1;
+}
+
+/* slide w/ active class  */
+.slide.active {
+  /* fully opaque */
+  opacity: 1;
+}
+
+.arrow {
+    /* positioned relative only to container */
+    position: fixed;
+    /* no color */
+    background-color: transparent;
+    color: #fff;
+    /* 20px all around  */
+    padding: 20px;
+    font-size: 30px;
+    border: 2px solid orange;
+    /* 50% down from top  */
+    top: 50%;
+    /* moves up 50% of height of itself to vertically center */
+    transform: translateY(-50%);
+    /* pointer when hovered  */
+    cursor: pointer;
+}
+
+.arrow:focus {
+    /* changes outline to greenyellow when focused. Maintains accessibility*/
+    outline-color: greenyellow;
+}
+
+.left-arrow {
+    /* move 15vw to the right and then 65px to the left to put right edge about flush with left edge of .slider */
+    left: calc(15vw - 65px);
+}
+
+.right-arrow {
+    /* move 15vw to the left and then 65px to the right to put left edge about flush with right edge of .slider */
+    right: calc(15vw - 65px);
 }
